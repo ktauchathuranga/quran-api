@@ -1,4 +1,4 @@
-// /api/models/QuranModel.php
+<!-- // /models/QuranModel.php -->
 <?php
 class QuranModel {
     private $conn;

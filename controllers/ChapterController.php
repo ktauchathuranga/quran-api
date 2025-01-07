@@ -1,5 +1,7 @@
-// /api/controllers/ChapterController.php
+<!-- // /controllers/ChapterController.php -->
 <?php
+require_once __DIR__ . '/../database/Database.php'; 
+
 require_once 'models/QuranModel.php';
 
 class ChapterController {

@@ -7,6 +7,7 @@ services:
       - .:/var/www/html
     depends_on:
       - db
+
   db:
     image: mysql:8.0
     environment:
@@ -16,3 +17,8 @@ services:
       - ./quran.sql:/docker-entrypoint-initdb.d/quran.sql
     ports:
       - "3306:3306"
+    command:
+      - --max_allowed_packet=512M
+      - --innodb_buffer_pool_size=1G
+      - --innodb_log_file_size=128M
+      - --net_buffer_length=16K

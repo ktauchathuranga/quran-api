@@ -1,10 +1,10 @@
-// /api/database/Database.php
+<!-- // /database/Database.php -->
 <?php
 class Database {
-    private $host = 'localhost';
+    private $host = 'db';
     private $db_name = 'quran';
     private $username = 'root'; // Use your DB username
-    private $password = ''; // Use your DB password
+    private $password = 'root_password'; // Use your DB password
     private $conn;
 
     public function getConnection() {
