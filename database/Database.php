@@ -1,4 +1,3 @@
-<!-- // /database/Database.php -->
 <?php
 class Database {
     private $host = 'db';
