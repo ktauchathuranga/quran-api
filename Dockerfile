@@ -1,5 +1,7 @@
 # Dockerfile
 FROM php:8.1-apache
+
+# Set working directory
 WORKDIR /var/www/html
 
 # Install required PHP extensions
