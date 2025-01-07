@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../database/Database.php'; 
-
-require_once 'models/QuranModel.php';
+require_once __DIR__ . '/../models/QuranModel.php';
 
 class ChapterController {
 
