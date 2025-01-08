@@ -169,20 +169,25 @@ All endpoints are accessible directly from the base URL.
 
 ```plaintext
 quran-api/
-├── Dockerfile
+├── controllers/
+│   ├── ChapterController.php
+│   └── EditionController.php
+├── database/
+│   └── Database.php
+├── models/
+│   ├── EditionModel.php
+│   └── QuranModel.php
+├── routes/
+│   └── api.php
+├── utils/
+│   └── loadEnv.php
 ├── docker-compose.yml
-|
-├── src/
-│   ├── index.php
-│   ├── controllers/
-│   │   └── ChapterController.php
-│   ├── models/
-│   │   └── QuranModel.php
-│   ├── database/
-│   │   └── Database.php
-│   └── quran.sql
+├── Dockerfile
+├── index.php
+├── quran.sql
+├── README.md
+└── test.py
 ```
-
 ---
 
 #### **Deployment Steps**
@@ -239,6 +244,14 @@ You can test the API using tools like **Postman** or **cURL**.
       "edition_id": 20
   }'
   ```
+
+---
+
+### **Acknowledgments**
+
+The **Quran API** utilizes the **Quran Database** provided by [Abdullah Ghanem](https://github.com/AbdullahGhanem/quran-database). Special thanks to him for his contribution, which made this API possible. You can explore the database and its resources at the following link:
+
+[Quran Database by Abdullah Ghanem](https://github.com/AbdullahGhanem/quran-database)
 
 ---
 
