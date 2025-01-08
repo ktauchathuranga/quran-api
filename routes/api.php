@@ -1,23 +1,58 @@
 <?php
-// Include necessary files
 require_once 'controllers/ChapterController.php';
 
-// API Router
+$controller = new ChapterController();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve data from POST request
     $inputData = json_decode(file_get_contents('php://input'), true);
 
-    // Chapter and verse are mandatory
-    if (isset($inputData['chapter']) && isset($inputData['verse'])) {
-        $chapter = $inputData['chapter'];
-        $verse = $inputData['verse'];
+    // Route handling
+    if (isset($inputData['action'])) {
+        $action = $inputData['action'];
 
-        $controller = new ChapterController();
-        $controller->getVerseDetails($chapter, $verse);
+        switch ($action) {
+            case 'getVerseDetails':
+                if (isset($inputData['chapter']) && isset($inputData['verse'])) {
+                    $chapter = $inputData['chapter'];
+                    $verse = $inputData['verse'];
+                    $edition_id = $inputData['edition_id'] ?? 20;
+                    $controller->getVerseDetails($chapter, $verse, $edition_id);
+                } else {
+                    echo json_encode([
+                        "status" => "error",
+                        "message" => "Chapter and Verse are required."
+                    ]);
+                }
+                break;
+
+            case 'getEditionsList':
+                $controller->getEditionsList();
+                break;
+
+            case 'getChapterDetails':
+                if (isset($inputData['chapter'])) {
+                    $chapter = $inputData['chapter'];
+                    $edition_id = $inputData['edition_id'] ?? 20;
+                    $controller->getChapterDetails($chapter, $edition_id);
+                } else {
+                    echo json_encode([
+                        "status" => "error",
+                        "message" => "Chapter is required."
+                    ]);
+                }
+                break;
+
+            default:
+                echo json_encode([
+                    "status" => "error",
+                    "message" => "Invalid action."
+                ]);
+                break;
+        }
     } else {
         echo json_encode([
             "status" => "error",
-            "message" => "Chapter and Verse are required."
+            "message" => "Action is required."
         ]);
     }
 }
