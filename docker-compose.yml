@@ -7,6 +7,7 @@ services:
       - .:/var/www/html
     depends_on:
       - db
+    container_name: web-server
 
   db:
     image: mysql:8.0
@@ -17,3 +18,4 @@ services:
       - ./quran.sql:/docker-entrypoint-initdb.d/quran.sql
     ports:
       - "3306:3306"
+    container_name: database-server
