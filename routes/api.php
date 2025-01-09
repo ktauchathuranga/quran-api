@@ -1,7 +1,9 @@
 <?php
 require_once 'controllers/ChapterController.php';
+require_once 'controllers/EditionController.php'; // Include EditionController
 
-$controller = new ChapterController();
+$chapterController = new ChapterController();
+$editionController = new EditionController(); // Initialize EditionController
 
 // Add CORS headers to allow cross-origin requests
 header("Access-Control-Allow-Origin: *");
@@ -21,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $chapter = $inputData['chapter'];
                     $verse = $inputData['verse'];
                     $edition_id = $inputData['edition_id'] ?? 20;
-                    $controller->getVerseDetails($chapter, $verse, $edition_id);
+                    $chapterController->getVerseDetails($chapter, $verse, $edition_id);
                 } else {
                     echo json_encode([
                         "status" => "error",
@@ -31,14 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
 
             case 'getEditionsList':
-                $controller->getEditionsList();
+                $editionController->getEditionList(); // Call method to fetch edition list
                 break;
 
             case 'getChapterDetails':
                 if (isset($inputData['chapter'])) {
                     $chapter = $inputData['chapter'];
                     $edition_id = $inputData['edition_id'] ?? 20;
-                    $controller->getChapterDetails($chapter, $edition_id);
+                    $chapterController->getChapterDetails($chapter, $edition_id);
                 } else {
                     echo json_encode([
                         "status" => "error",

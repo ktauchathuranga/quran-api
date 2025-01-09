@@ -3,12 +3,9 @@ import json
 
 url = 'http://localhost:8080'
 headers = {'Content-Type': 'application/json'}
-data = {
-    "action": "getVerseDetails",
-    "chapter": 1,
-    "verse": 1,
-    "edition_id": 132
-}
+data =   {
+      "action": "getEditionsList"
+  }
 
 
 

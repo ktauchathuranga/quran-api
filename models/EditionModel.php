@@ -8,7 +8,7 @@ class EditionModel {
     }
 
     public function getAllEditions() {
-        $query = "SELECT id, identifier, language, name, englishName, format, type FROM {$this->table} ORDER BY id";
+        $query = "SELECT id, identifier, language, name, englishName, type FROM {$this->table} ORDER BY id";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
