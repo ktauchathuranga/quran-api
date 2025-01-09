@@ -154,6 +154,125 @@ All endpoints are accessible directly from the base URL.
   }
   ```
 
+
+## Available Editions
+
+This API provides access to multiple translations and tafsirs (interpretations) of the Quran in various languages. Below is a list of available editions, each with a unique identifier (ID), language name, translation name, English name, and type. You can reference the `id` for each edition when making requests to the API.
+
+
+| ID | Language | Name | English Name | Type |
+| --- | -------- | ---- | ------------ | ---- |
+| 1 | Arabic | تفسير المیسر | King Fahad Quran Complex | tafsir |
+| 2 | Azerbaijani | Məmmədəliyev & Bünyadov | Vasim Mammadaliyev and Ziya Bunyadov | translation |
+| 3 | Azerbaijani | Musayev | Alikhan Musayev | translation |
+| 4 | Bengali | মুহিউদ্দীন খান | Muhiuddin Khan | translation |
+| 5 | Czech | Hrbek | Preklad I. Hrbek | translation |
+| 6 | Czech | Nykl | A. R. Nykl | translation |
+| 7 | German | Abu Rida | Abu Rida Muhammad ibn Ahmad ibn Rassoul | translation |
+| 8 | German | Bubenheim & Elyas | A. S. F. Bubenheim and N. Elyas | translation |
+| 9 | German | Khoury | Adel Theodor Khoury | translation |
+| 10 | German | Zaidan | Amir Zaidan | translation |
+| 11 | Divehi | ދިވެހި | Office of the President of Maldives | translation |
+| 12 | English | Ahmed Ali | Ahmed Ali | translation |
+| 13 | English | Ahmed Raza Khan | Ahmed Raza Khan | translation |
+| 14 | English | Arberry | A. J. Arberry | translation |
+| 15 | English | Asad | Muhammad Asad | translation |
+| 16 | English | Daryabadi | Abdul Majid Daryabadi | translation |
+| 17 | English | Hilali & Khan | Muhammad Taqi-ud-Din al-Hilali and Muhammad Muhsin Khan | translation |
+| 18 | English | Pickthall | Mohammed Marmaduke William Pickthall | translation |
+| 19 | English | Qaribullah & Darwish | Hasan al-Fatih Qaribullah and Ahmad Darwish | translation |
+| 20 | English | Saheeh International | Saheeh International | translation |
+| 21 | English | Sarwar | Muhammad Sarwar | translation |
+| 22 | English | Yusuf Ali | Abdullah Yusuf Ali | translation |
+| 23 | Persian | آیتی | AbdolMohammad Ayati | translation |
+| 24 | Persian | فولادوند | Mohammad Mahdi Fooladvand | translation |
+| 25 | Persian | الهی قمشه‌ای | Mahdi Elahi Ghomshei | translation |
+| 26 | Persian | مکارم شیرازی | Naser Makarem Shirazi | translation |
+| 27 | French | Hamidullah | Muhammad Hamidullah | translation |
+| 28 | Hausa | Gumi | Abubakar Mahmoud Gumi | translation |
+| 29 | Hindi | फ़ारूक़ ख़ान & नदवी | Suhel Farooq Khan and Saifur Rahman Nadwi | translation |
+| 30 | Indonesian | Bahasa Indonesia | Unknown | translation |
+| 31 | Italian | Piccardo | Hamza Roberto Piccardo | translation |
+| 32 | Japanese | Japanese | Unknown | translation |
+| 33 | Korean | Korean | Unknown | translation |
+| 34 | Kurdish | ته‌فسیری ئاسان | Burhan Muhammad-Amin | translation |
+| 35 | Malayalam | അബ്ദുല്‍ ഹമീദ് & പറപ്പൂര്‍ | Cheriyamundam Abdul Hameed and Kunhi Mohammed Parappoor | translation |
+| 36 | Dutch | Keyzer | Salomo Keyzer | translation |
+| 37 | Norwegian | Einar Berg | Einar Berg | translation |
+| 38 | Polish | Bielawskiego | Józefa Bielawskiego | translation |
+| 39 | Portuguese | El-Hayek | Samir El-Hayek | translation |
+| 40 | Romanian | Grigore | George Grigore | translation |
+| 41 | Russian | Кулиев | Elmir Kuliev | translation |
+| 42 | Russian | Османов | Magomed-Nuri Osmanovich Osmanov | translation |
+| 43 | Russian | Порохова | V. Porokhova | translation |
+| 44 | Sindhi | امروٽي | Taj Mehmood Amroti | translation |
+| 45 | Somali | Abduh | Mahmud Muhammad Abduh | translation |
+| 46 | Albanian | Sherif Ahmeti | Sherif Ahmeti | translation |
+| 47 | Albanian | Feti Mehdiu | Feti Mehdiu | translation |
+| 48 | Albanian | Efendi Nahi | Hasan Efendi Nahi | translation |
+| 49 | Swedish | Bernström | Knut Bernström | translation |
+| 50 | Swahili | Al-Barwani | Ali Muhsin Al-Barwani | translation |
+| 51 | Tamil | ஜான் டிரஸ்ட் | Jan Turst Foundation | translation |
+| 52 | Tajik | Оятӣ | AbdolMohammad Ayati | translation |
+| 53 | Thai | ภาษาไทย | King Fahad Quran Complex | translation |
+| 54 | Turkish | Süleyman Ateş | Suleyman Ates | translation |
+| 55 | Turkish | Alİ Bulaç | Alİ Bulaç | translation |
+| 56 | Turkish | Diyanet İşleri | Diyanet Isleri | translation |
+| 57 | Turkish | Abdulbakî Gölpınarlı | Abdulbaki Golpinarli | translation |
+| 58 | Turkish | Öztürk | Yasar Nuri Ozturk | translation |
+| 59 | Turkish | Çeviriyazı | Muhammet Abay | transliteration |
+| 60 | Turkish | Diyanet Vakfı | Diyanet Vakfi | translation |
+| 61 | Turkish | Elmalılı Hamdi Yazır | Elmalili Hamdi Yazir | translation |
+| 62 | Turkish | Suat Yıldırım | Suat Yildirim | translation |
+| 63 | Turkish | Edip Yüksel | Edip Yüksel | translation |
+| 64 | Tatar | Yakub Ibn Nugman | Yakub Ibn Nugman | translation |
+| 65 | Uighur | محمد صالح | Muhammad Saleh | translation |
+| 66 | Urdu | احمد علی | Ahmed Ali | translation |
+| 67 | Urdu | جالندہری | Fateh Muhammad Jalandhry | translation |
+| 68 | Urdu | علامہ جوادی | Syed Zeeshan Haider Jawadi | translation |
+| 69 | Urdu | احمد رضا خان | Ahmed Raza Khan | translation |
+| 70 | Urdu | طاہر القادری | Tahir ul Qadri | translation |
+| 71 | Uzbek | Мухаммад Содик | Muhammad Sodik Muhammad Yusuf | translation |
+| 72 | English | Maududi | Abul Ala Maududi | translation |
+| 73 | English | Shakir | Mohammad Habib Shakir | translation |
+| 74 | English | Transliteration | English Transliteration | transliteration |
+| 75 | Spanish | Cortes | Julio Cortes | translation |
+| 76 | Persian | انصاریان | Hussain Ansarian | translation |
+| 77 | Arabic | Simple | Simple | quran |
+| 78 | Arabic | Simple Clean | Simple Clean | quran |
+| 79 | Arabic | Simple Enhanced | Simple Enhanced | quran |
+| 80 | Arabic | Simple Minimal | Simple Minimal | quran |
+| 81 | Arabic | Uthmani Minimal | Uthmani Minimal | quran |
+| 82 | Arabic | Uthamani | Uthamani | quran |
+| 83 | Bulgarian | Теофанов | Tzvetan Theophanov | translation |
+| 84 | Bosnian | Mlivo | Mustafa Mlivo | translation |
+| 85 | Persian | بهرام پور | Abolfazl Bahrampour | translation |
+| 86 | Spanish | Asad | Muhammad Asad - Abdurrasak Pérez | translation |
+| 87 | Persian | خرمشاهی | Baha'oddin Khorramshahi | translation |
+| 88 | Persian | مجتبوی | Sayyed Jalaloddin Mojtabavi | translation |
+| 89 | Hindi | फ़ारूक़ ख़ान & अहमद | Muhammad Farooq Khan and Muhammad Ahmed | translation |
+| 90 | Indonesian | Quraish Shihab | Muhammad Quraish Shihab et al. | translation |
+| 91 | Malay | Basmeih | Abdullah Muhammad Basmeih | translation |
+| 92 | Russian | Абу Адель | Abu Adel | translation |
+| 93 | Russian | Крачковский | Ignaty Yulianovich Krachkovsky | translation |
+| 94 | Russian | Аль-Мунтахаб | Ministry of Awqaf, Egypt | translation |
+| 95 | Russian | Саблуков | Gordy Semyonovich Sablukov | translation |
+| 96 | Urdu | محمد جوناگڑھی | Muhammad Junagarhi | translation |
+| 97 | Urdu | ابوالاعلی مودودی | Abul A'ala Maududi | translation |
+| 98 | Chinese | Ma Jian | Ma Jian | translation |
+| 99 | Chinese | Ma Jian (Traditional) | Ma Jian | translation |
+| 100 | Persian | خرمدل | Mostafa Khorramdel | translation |
+| 101 | Persian | معزی | Mohammad Kazem Moezzi | translation |
+| 102 | Bosnian | Korkut | Besim Korkut | translation |
+| 103 | Arabic | تفسير الجلالين | Jalal ad-Din al-Mahalli and Jalal ad-Din as-Suyuti | tafsir |
+| 104 | Arabic | Tajweed | Tajweed | quran |
+| 105 | Arabic | Word By Word | Word By Word | quran |
+| 130 | Arabic | Kids | Kids | quran |
+| 131 | Arabic | Corpus | Corpus | quran |
+| 132 | Sinhala | Naseem Ismail | Naseem Isamil and Masoor Maulana, Kaleel | translation |
+| 133 | Arabic | Buck | Buck | translation |
+| 134 | Chinese | Ma Zhong Gang | 马仲刚 | translation |
+
 ---
 
 ### **Dockerized Deployment**
