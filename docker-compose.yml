@@ -18,4 +18,5 @@ services:
       - ./quran.sql:/docker-entrypoint-initdb.d/quran.sql
     ports:
       - "3306:3306"
-    container_name: database-server
+    container_name: db-server
+    
