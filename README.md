@@ -8,7 +8,7 @@ This documentation outlines the API's endpoints, usage, and deployment instructi
 
 ---
 
-**Server Status:** ✅ **| Up and Running... hooray!**
+**Server Status:** ✅ **| lol**
 
 ---
 
