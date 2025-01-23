@@ -45,18 +45,17 @@ jobs:
           status_text+="❌ **| Down... 🥺**"
         fi
     
-        # Escape the special characters for sed
-        escaped_status_text=$(echo "$status_text" | sed 's/[&/\]/\\&/g' | sed 's/\*/\\*/g')
+        # Use printf to escape the special characters
+        escaped_status_text=$(printf '%s' "$status_text" | sed 's/[&/\]/\\&/g' | sed 's/\*/\\*/g')
     
         # Update or append server status in README.md
         if grep -q "\*\*Server Status:\*\*" README.md; then
-          # Use the correct pattern and apply the escaped status text
+          # Apply the escaped status text
           sed -i "s|\*\*Server Status:\*\*.*|$escaped_status_text|" README.md
         else
           # If not found, append the status
           echo -e "\n$escaped_status_text" >> README.md
         fi
-
     - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
