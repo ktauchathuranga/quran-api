@@ -42,12 +42,16 @@ jobs:
           status_text+="❌ **| Down... 🥺**"
         fi
     
-        # Escape the asterisks and update or append server status in README.md
-        if grep -q "^\\*\\*Server Status:\\*\\*" README.md; then
-          sed -i "s|^\\*\\*Server Status:\\*\\*.*|$status_text|" README.md
+        # Escape special characters in the string before passing to sed
+        escaped_status_text=$(echo "$status_text" | sed 's/[&/\]/\\&/g')
+    
+        # Update or append server status in README.md
+        if grep -q "^**Server Status:**" README.md; then
+          sed -i "s|^**Server Status:**.*|$escaped_status_text|" README.md
         else
-          echo -e "\\n$status_text" >> README.md
+          echo -e "\n$escaped_status_text" >> README.md
         fi
+
 
 
     - name: Commit and push changes
