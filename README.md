@@ -6,6 +6,8 @@ The **Quran API** is a modular and production-ready API designed to provide Qura
 
 This documentation outlines the API's endpoints, usage, and deployment instructions.
 
+---
+
 **Server Status:** ✅ **| Up and Running... hooray!**
 
 ---
