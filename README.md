@@ -381,3 +381,5 @@ The **Quran API** utilizes the **Quran Database** provided by [Abdullah Ghanem](
 For questions or support, please reach out to the development team or refer to the repository's issue tracker.
 
 Enjoy using the Quran API! 😊
+
+**Server Status:** **<span style='color: green;'>UP</span>**
