@@ -1,6 +1,9 @@
 name: Quran API Server Status Check
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "0 0,12 * * *" # Runs at 12:00 AM and 12:00 PM UTC daily
 
@@ -31,20 +34,20 @@ jobs:
 
     - name: Update README.md
       run: |
-        status_text="Server Status: "
+        status_text="**Server Status:** "
         if [ "$SERVER_STATUS" == "up" ]; then
-          status_text+="<span style='color: green;'>UP</span>"
+          status_text+="**<span style='color: green;'>UP</span>**"
         else
-          status_text+="<span style='color: red;'>DOWN</span>"
+          status_text+="**<span style='color: red;'>DOWN</span>**"
         fi
 
         # Replace the server status line in README.md
-        sed -i "/^Server Status:/c\\$status_text" README.md
+        sed -i "/^\*\*Server Status:\*\*/c\$status_text" README.md
 
     - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.email "79928743+ktauchathuranga@users.noreply.github.com"
 
         git add README.md
         git commit -m "Update server status"
