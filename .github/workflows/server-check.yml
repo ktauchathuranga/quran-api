@@ -35,15 +35,15 @@ jobs:
 
     - name: Update README.md
       run: |
-        status_text="**Server Status:** "
+        # Set the server status text
         if [ "$SERVER_STATUS" == "up" ]; then
-          status_text+="✅ **| Up and Running... hooray!**"
+          status_text="**Server Status:** ✅ **| Up and Running... hooray!**"
         else
-          status_text+="❌ **| Down... 🥺**"
+          status_text="**Server Status:** ❌ **| Down... 🥺**"
         fi
     
         # Escape special characters in the string before passing to sed
-        escaped_status_text=$(echo "$status_text" | sed 's/[&/\]/\\&/g')
+        escaped_status_text=$(printf '%s\n' "$status_text" | sed 's/[&/\]/\\&/g')
     
         # Update or append server status in README.md
         if grep -q "^**Server Status:**" README.md; then
@@ -51,6 +51,7 @@ jobs:
         else
           echo -e "\n$escaped_status_text" >> README.md
         fi
+
 
 
 
