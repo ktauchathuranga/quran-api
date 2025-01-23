@@ -1,0 +1,51 @@
+name: Quran API Server Status Check
+
+on:
+  schedule:
+    - cron: "0 0,12 * * *" # Runs at 12:00 AM and 12:00 PM UTC daily
+
+jobs:
+  check-server-status:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Send POST request to Quran API
+      id: post-request
+      run: |
+        response=$(curl -s -X POST https://quran.x10.mx/ \
+          -H "Content-Type: application/json" \
+          -d '{"action": "getVerseDetails", "chapter": 1, "verse": 1, "edition_id": 20}')
+        echo "API_RESPONSE=$response" >> $GITHUB_ENV
+
+    - name: Parse API response
+      id: parse-response
+      run: |
+        status=$(echo "$API_RESPONSE" | jq -r .status)
+        if [ "$status" == "success" ]; then
+          echo "SERVER_STATUS=up" >> $GITHUB_ENV
+        else
+          echo "SERVER_STATUS=down" >> $GITHUB_ENV
+
+    - name: Update README.md
+      run: |
+        status_text="Server Status: "
+        if [ "$SERVER_STATUS" == "up" ]; then
+          status_text+="<span style='color: green;'>UP</span>"
+        else
+          status_text+="<span style='color: red;'>DOWN</span>"
+        fi
+
+        # Replace the server status line in README.md
+        sed -i "/^Server Status:/c\\$status_text" README.md
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        git add README.md
+        git commit -m "Update server status"
+        git push
