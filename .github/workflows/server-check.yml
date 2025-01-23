@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 0,12 * * *" # Runs at 12:00 AM and 12:00 PM UTC daily
+      - cron: "0 */5 * * *" # Runs every 5 hours
 
 jobs:
   check-server-status:
@@ -31,6 +31,7 @@ jobs:
           echo "SERVER_STATUS=up" >> $GITHUB_ENV
         else
           echo "SERVER_STATUS=down" >> $GITHUB_ENV
+        fi
 
     - name: Update README.md
       run: |
