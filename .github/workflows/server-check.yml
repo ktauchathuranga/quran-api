@@ -45,17 +45,18 @@ jobs:
           status_text+="❌ **| Down... 🥺**"
         fi
     
-        # Escape special characters with printf and a safe sed delimiter
-        escaped_status_text=$(printf '%s' "$status_text" | sed 's/[&]/\\&/g' | sed 's/[\/]/\\\//g' | sed 's/\*/\\*/g')
+        # Escape special characters using sed with a different delimiter
+        escaped_status_text=$(echo "$status_text" | sed 's/[&|\\]/\\&/g' | sed 's/\*/\\*/g' | sed 's/:/\\:/g')
     
         # Update or append server status in README.md
         if grep -q "\*\*Server Status:\*\*" README.md; then
-          # Use a different delimiter in sed to avoid conflicts
-          sed -i "s|\*\*Server Status:\*\*.*|$escaped_status_text|" README.md
+          # Use a different delimiter for sed to avoid conflicts with special characters
+          sed -i "s|**Server Status:**.*|$escaped_status_text|" README.md
         else
           # If not found, append the status
           echo -e "\n$escaped_status_text" >> README.md
         fi
+
         
     - name: Commit and push changes
       run: |
