@@ -32,25 +32,31 @@ jobs:
         else
           echo "SERVER_STATUS=down" >> $GITHUB_ENV
         fi
-
+    
     - name: Update README.md
       run: |
-        # Set the server status text
+        # Define the initial status
+        status_text="**Server Status:** "
+        
+        # Add appropriate status based on SERVER_STATUS
         if [ "$SERVER_STATUS" == "up" ]; then
-          status_text="**Server Status:** ✅ **| Up and Running... hooray!**"
+          status_text+="✅ **| Up and Running... hooray!**"
         else
-          status_text="**Server Status:** ❌ **| Down... 🥺**"
+          status_text+="❌ **| Down... 🥺**"
         fi
     
-        # Escape special characters in the string before passing to sed
-        escaped_status_text=$(printf '%s\n' "$status_text" | sed 's/[&/\]/\\&/g')
+        # Escape the special characters for sed
+        escaped_status_text=$(echo "$status_text" | sed 's/[&/\]/\\&/g')
     
         # Update or append server status in README.md
         if grep -q "^**Server Status:**" README.md; then
+          # Use the correct pattern and apply the escaped status text
           sed -i "s|^**Server Status:**.*|$escaped_status_text|" README.md
         else
+          # If not found, append the status
           echo -e "\n$escaped_status_text" >> README.md
         fi
+
 
 
 
