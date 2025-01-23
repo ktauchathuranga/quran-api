@@ -56,9 +56,18 @@ jobs:
         }' README.md > README.md.tmp
 
         mv README.md.tmp README.md
-
         
+    - name: Check for changes
+      id: check-changes
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
+        else
+          echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
+        fi
+
     - name: Commit and push changes
+      if: env.CHANGES_DETECTED == 'true'
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "79928743+ktauchathuranga@users.noreply.github.com"
@@ -66,3 +75,7 @@ jobs:
         git add README.md
         git commit -m "Update server status"
         git push
+
+    - name: Skip commit (no changes detected)
+      if: env.CHANGES_DETECTED == 'false'
+      run: echo "No changes detected in README.md. Skipping commit."
