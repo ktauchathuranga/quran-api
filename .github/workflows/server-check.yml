@@ -42,8 +42,12 @@ jobs:
           status_text+="**<span style='color: red;'>DOWN</span>**"
         fi
 
-        # Replace the server status line in README.md
-        sed -i "/^\*\*Server Status:\*\*/c\$status_text" README.md
+        # Update the status or add it if it doesn't exist
+        if grep -q "^\\*\\*Server Status:\\*\\*" README.md; then
+          sed -i "s/^\\*\\*Server Status:\\*\\*.*/$status_text/" README.md
+        else
+          echo -e "\\n$status_text" >> README.md
+        fi
 
     - name: Commit and push changes
       run: |
