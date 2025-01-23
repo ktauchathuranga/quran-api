@@ -36,26 +36,26 @@ jobs:
     - name: Update README.md
       run: |
         # Define the initial status
-        status_text="**Server Status:** "
-        
-        # Add appropriate status based on SERVER_STATUS
         if [ "$SERVER_STATUS" == "up" ]; then
-          status_text+="✅ **| Up and Running... hooray!**"
+          status_text="**Server Status:** ✅ **| Up and Running... hooray!**"
         else
-          status_text+="❌ **| Down... 🥺**"
+          status_text="**Server Status:** ❌ **| Down... 🥺**"
         fi
-    
-        # Use printf to escape the special characters
-        escaped_status_text=$(printf '%s' "$status_text" | sed 's/[&/\]/\\&/g' | sed 's/\*/\\*/g')
-    
-        # Update or append server status in README.md
-        if grep -q "\*\*Server Status:\*\*" README.md; then
-          # Apply the escaped status text
-          sed -i "s|\*\*Server Status:\*\*.*|$escaped_status_text|" README.md
-        else
-          # If not found, append the status
-          echo -e "\n$escaped_status_text" >> README.md
-        fi
+
+        # Use `awk` for safer replacement in README.md
+        awk -v status="$status_text" '
+        BEGIN {found = 0}
+        /\*\*Server Status:\*\*/ {
+          print status
+          found = 1
+          next
+        }
+        {print}
+        END {
+          if (found == 0) print status
+        }' README.md > README.md.tmp
+
+        mv README.md.tmp README.md
 
         
     - name: Commit and push changes
