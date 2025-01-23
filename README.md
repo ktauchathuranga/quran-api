@@ -6,7 +6,7 @@ The **Quran API** is a modular and production-ready API designed to provide Qura
 
 This documentation outlines the API's endpoints, usage, and deployment instructions.
 
-Server Status:
+**Server Status:**
 
 ---
 
@@ -381,5 +381,3 @@ The **Quran API** utilizes the **Quran Database** provided by [Abdullah Ghanem](
 For questions or support, please reach out to the development team or refer to the repository's issue tracker.
 
 Enjoy using the Quran API! 😊
-
-**Server Status:** **<span style='color: green;'>UP</span>**
