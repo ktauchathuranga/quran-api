@@ -42,9 +42,9 @@ jobs:
           status_text+="**<span style='color: red;'>DOWN</span>**"
         fi
 
-        # Update the status or add it if it doesn't exist
+        # Update or append server status in README.md
         if grep -q "^\\*\\*Server Status:\\*\\*" README.md; then
-          sed -i "s/^\\*\\*Server Status:\\*\\*.*/$status_text/" README.md
+          sed -i "s|^\\*\\*Server Status:\\*\\*.*|$status_text|" README.md
         else
           echo -e "\\n$status_text" >> README.md
         fi
