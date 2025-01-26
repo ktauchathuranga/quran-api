@@ -10,7 +10,7 @@ This documentation outlines the API's endpoints, usage, and deployment instructi
 
 **Server Status:** ✅ **| Up and Running... hooray!**
 
-- **Public API URL: https://quran.x10.mx/**
+- **Public API URL: https://quran.x10.mx**
 ---
 
 ### **Base URL**
