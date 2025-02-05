@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../database/Database.php';
+require_once __DIR__ . '/../../../common/database/Database.php';
 require_once __DIR__ . '/../models/EditionModel.php';
 
 class EditionController {

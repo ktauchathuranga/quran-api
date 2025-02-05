@@ -1,6 +1,6 @@
 <?php
 // Include the loadEnv.php script from the utils folder to load environment variables
-require_once __DIR__ . '/../utils/loadEnv.php'; // Adjusted path
+require_once __DIR__ . '/../../common/utils/loadEnv.php';
 
 class Database {
     private $host;

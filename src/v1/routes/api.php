@@ -1,6 +1,8 @@
 <?php
-require_once 'controllers/ChapterController.php';
-require_once 'controllers/EditionController.php'; // Include EditionController
+// require_once 'controllers/ChapterController.php';
+// require_once 'controllers/EditionController.php';
+require_once __DIR__ . '/../controllers/EditionController.php';
+require_once __DIR__ . '/../controllers/ChapterController.php';
 
 $chapterController = new ChapterController();
 $editionController = new EditionController(); // Initialize EditionController

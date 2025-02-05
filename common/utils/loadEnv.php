@@ -2,7 +2,7 @@
 // /utils/loadEnv.php
 
 // Define the path to your .env file
-$envFilePath = __DIR__ . '/../.env'; // Going one directory up from 'utils' to the root where .env is located
+$envFilePath = __DIR__ . '/../../.env';
 
 if (file_exists($envFilePath)) {
     // Read the .env file line by line
