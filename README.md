@@ -16,10 +16,15 @@ This documentation outlines the API's endpoints, usage, and deployment instructi
 ### **Base URL**
 
 ```plaintext
-http://localhost:8080
+http://localhost:8080/v1/api
 ```
 
 All endpoints are accessible directly from the base URL.
+
+---
+
+### API Versions
+The API is versioned to allow for backward compatibility as new features and updates are introduced. The current available version is v1.
 
 ---
 
@@ -292,25 +297,28 @@ This API provides access to multiple translations and tafsirs (interpretations) 
 #### **Folder Structure**
 
 ```plaintext
-quran-api/
-├── controllers/
-│   ├── ChapterController.php
-│   └── EditionController.php
-├── database/
-│   └── Database.php
-├── models/
-│   ├── EditionModel.php
-│   └── QuranModel.php
-├── routes/
-│   └── api.php
-├── utils/
-│   └── loadEnv.php
-├── docker-compose.yml
-├── Dockerfile
-├── index.php
-├── quran.sql
-├── README.md
-└── test.py
+quran
+├── common/
+│   ├── database/
+│   │   └── Database.php [1.08 KB]
+│   └── utils/
+│       └── loadEnv.php [698 bytes]
+├── src/
+│   └── v1/
+│       ├── controllers/
+│       │   ├── ChapterController.php [2.09 KB]
+│       │   └── EditionController.php [614 bytes]
+│       ├── models/
+│       │   ├── EditionModel.php [451 bytes]
+│       │   └── QuranModel.php [2.35 KB]
+│       └── routes/
+│           └── api.php [2.49 KB]
+├── Dockerfile [310 bytes]
+├── README.md [14.15 KB]
+├── docker-compose.yml [427 bytes]
+├── index.php [704 bytes]
+├── quran.sql [166.42 MB]
+└── test.py [2.68 KB]
 ```
 ---
 
@@ -327,7 +335,7 @@ quran-api/
 3. Once the containers are up and running, the API will be accessible at:
 
    ```plaintext
-   http://localhost:8080
+   http://localhost:8080/v1/api
    ```
 ---
 
@@ -361,7 +369,7 @@ You can test the API using tools like **Postman** or **cURL**.
 - Example `cURL` Command for `getVerseDetails`:
 
   ```bash
-  curl -X POST http://localhost:8080 -H "Content-Type: application/json" -d '{
+  curl -X POST http://localhost:8080/v1/api -H "Content-Type: application/json" -d '{
       "action": "getVerseDetails",
       "chapter": 2,
       "verse": 255,
