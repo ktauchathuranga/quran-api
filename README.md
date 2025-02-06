@@ -297,7 +297,7 @@ This API provides access to multiple translations and tafsirs (interpretations) 
 #### **Folder Structure**
 
 ```plaintext
-quran
+quran-api
 ├── common/
 │   ├── database/
 │   │   └── Database.php [1.08 KB]
