@@ -18,7 +18,7 @@ jobs:
     - name: Send POST request to Quran API
       id: post-request
       run: |
-        response=$(curl -s -X POST https://quran.x10.mx/api/ \
+        response=$(curl -s -X POST https://quranbackend.x10.mx/api/ \
           -H "Content-Type: application/json" \
           -d '{"action": "getVerseDetails", "chapter": 1, "verse": 1, "edition_id": 20}')
         echo "API_RESPONSE=$response" >> $GITHUB_ENV

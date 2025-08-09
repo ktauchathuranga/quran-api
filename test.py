@@ -2,7 +2,7 @@ import requests
 import json
 
 # Define the base URL and headers
-url = 'https://quran.x10.mx/api'  # Replace with your actual API URL
+url = 'https://quranbackend.x10.mx/api'  # Replace with your actual API URL
 headers = {'Content-Type': 'application/json'}
 
 # Function to send POST request
